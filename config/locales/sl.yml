@@ -2,6 +2,12 @@
 sl: 
   activerecord: 
     attributes: 
+      address: 
+        city: Mesto
+        country: Država
+        state: Okraj
+        street: Ulica
+        zip: Pošta
       card: 
         city: Mesto
         country: Država
@@ -47,7 +53,7 @@ sl:
         status: Posodobitev
       task_list: 
         finish_on: "Rok za dokončanje"
-        name: IMe
+        name: Ime
         start_on: "Datum začetka"
       upload: 
         description: Opis
@@ -64,7 +70,7 @@ sl:
         name: Stran
     errors: 
       full_messages: 
-        format: "{{attribute}} {{message}}"
+        format: "%{attribute} %{message}"
       messages: 
         accepted: "mora biti potrjeno"
         blank: "ne sme biti prazno"
@@ -74,9 +80,23 @@ sl:
         even: "mora biti pozitivno"
         exclusion: "je rezervirano "
         greater_than: "mora biti večje kot %{count}"
+        greater_than_or_equal_to: "mora biti večje ali enako kot  %{count}"
         inclusion: "ni vključeno v seznam"
         invalid: "je napačno"
+        less_than: "mora biti manjše od %{count}"
+        less_than_or_equal_to: "mora biti manjše ali enako kot %{count}"
         not_a_number: "ni število"
+        odd: "mora biti neparno"
+        record_invalid: "Napak v preverjanju: %{errors}"
+        taken: "je že zasedeno"
+        too_long: "je predolgo (največ %{count} znakov)"
+        too_short: "je prekratko (minimalno %{count} znakov)"
+        wrong_length: "je napačne dolžine (moralo bi biti %{count} znakov)"
+      models: 
+        comment: 
+          attributes: 
+            body: 
+              no_body_generic: "V polje zgoraj prosim vpiši kaj si storil/a."
     models: 
       address: Naslov
       card: Izkaznica
@@ -110,7 +130,7 @@ sl:
       title: "%{user} je začel pogovor: %{conversation}"
     create_note: 
       create_note: "dodal zaznamek"
-      title: "%{user} je ustvaril zaznamek \"%{note}\" na %{page}"
+      title: "%{user} je ustvaril zaznamek <strong>%{note}</strong> na %{page}"
     create_page: 
       create_page: "ustvaril stran"
       title: "%{user} je ustvaril stran %{page}"
@@ -118,6 +138,9 @@ sl:
       by: "s strani"
       create_person: "je bil povabljen v projekt"
       title: "%{person} je bil povabljen v projekt %{project}"
+    create_project: 
+      left: "ustvaril projekt"
+      title: "%{person} je začel projekt %{project}"
     create_task: 
       create_task: "je ustvaril opravilo"
       title: "%{user} je ustvaril opravilo %{task} v %{task_list}"
@@ -128,6 +151,7 @@ sl:
       title: "%{user} je naložil/a %{file}"
     delete_person: 
       by: "s strani "
+      delete_person: "je bil odstranjen s projekta"
       left: "zapustil projekt"
       title: "%{person} je zapustil projekt %{project}"
     edit_note: 
@@ -136,9 +160,19 @@ sl:
     edit_page: 
       edit_page: "uredil stran"
       title: "%{user} je uredil stran  %{page}"
+    thread: 
+      created: 
+        conversation: "je začel pogovor"
+        task: "ustvaril opravilo"
+      more_comments: 
+        one: "1 komentar"
+        other: "%{count} komentarjev"
+        two: "2 komentarja"
+      on_task_list: na
   avatars: 
     edit: 
       upload: "Naloži ta avatar"
+      upload_new_image: "Naloži novo sliko za tvoj avatar"
     new: 
       title: "Naloži avatar"
       upload: Naloži
@@ -153,6 +187,14 @@ sl:
       social_networks: "Socialna Omrežja"
       vcard: "Prenesi vCard"
       websites: "Spletne strani"
+    card_types: 
+      business: POslovno
+      fax: Faks
+      home: Doma
+      mobile: Mobilno
+      other: Ostalo
+      personal: Zasebno
+      work: Delo
     field: 
       add_addresses: "Dodaj Naslov"
       add_email_addresses: "Dodaj Email"
@@ -162,38 +204,56 @@ sl:
       add_websites: "Dodaj spletna stran"
   comments: 
     actions: 
+      confirm_delete: "Ali si prepričan/a, da želiš odstraniti ta komentar?"
       convert_task: "Pretvori v opravilo"
       edit: "Uredi komentar"
+    attach: 
+      tooltip: Pripni
     comment: 
+      cannot_edit: "Komentarja ne moreš urediti po 15 minutah od nastanka"
       commented_on: "-"
       commented_on_a_task_list: "-"
+      confirm_delete: "Ali si prepričan/a, da želiš odstraniti ta komentar?"
       hours: "%{hours}ur"
       hours_with_minutes: "%{hours}ur %{minutes}minut"
+      loading: Nalagam...
     convert_form: 
+      destination: "Izberi ciljni seznam opravil"
       name: "Vnesi ime za to opravilo"
+      submit: Pretvori
     edit: 
       submit: Shrani
     hours: 
       add_hours: Ure
       hours: "Koliko ur si porabil za to opravilo"
+      time_tracking_docs: "Nauči se uporabljati Časovno beleženje"
+      tooltip: "Dodaj ure k opravilu"
     new: 
       assigned_to: "Dodeljeno: "
       assigned_to_nobody: Nedodeljeno
+      comment_on_project: "Komentar na:"
       conversation: "Pošlji sporočilo celotni skupini"
       project: "Kaj počneš? Deli ideje, povezave, posodobitve..."
       submit: Shrani
+      task: "Definiraj kaj mora biti narejeno in določi odgovornega."
+      task_list: "Deli ideje za ta seznam opravil. Da ustvariš ali dodeliš opravila uporabi stransko vrstico."
+    preview: 
+      close: Zapri
+      preview: Predogled
+      showing: "..."
   common: 
     accept: Sprejmi
     and: in
     calendar: Koledar
     cancel: Prekliči
-    close: zapri
+    close: Zapri
     comment: 
       one: "%{count} komentar"
       other: "%{count} komentarjev"
     decline: Zavrni
     delete: Odstrani
     edit: Uredi
+    gantt_chart: Gantogram
     in_project: v
     next: Naprej
     not_allowed: "Za to pa nimaš dovoljenja!"
@@ -212,8 +272,11 @@ sl:
     delete_task_list: "Ali si prepričan/a, da želiš odstraniti ta seznam opravil?"
     delete_upload: "Ali si prepričan/a, da želiš odstraniti to datoteko?"
   conversations: 
+    actions: 
+      confirm_delete: "Ali si prepričan/a, da želiš odstraniti ta pogovor?"
     column: 
       new_conversation: "Nov pogovor"
+      subscribe: "Naroči se na seznam aktivnosti"
     conversation_with_extract: 
       posted_by: Objavil
     edit: 
@@ -224,6 +287,7 @@ sl:
       tooltips: 
         body: "Postavi vprašanje, povej kaj je novega ali pa začni diskusijo"
     index: 
+      new_conversation: "Nov Pogovor"
       rss: 
         description: "Pogovori za projekt %{name}"
         title: "%{name} pogovori"
@@ -244,6 +308,8 @@ sl:
       messages: sporočila
       started_by: Začel
     watcher_fields: 
+      add_suscribers: "Kdo od sodelavcev bo spremljal ta pogovor?"
+      invite_users: "Si edini uporabnik v tem projektu!"
       people_all: "Vsi osebe v projektu"
   countries: 
     AC: "Otok Ascension"
@@ -461,7 +527,7 @@ sl:
     SM: "San Marino"
     SN: Senegal
     SO: Somalija
-    SR: Surinam
+    SR: Priimek
     ST: "Sao Tome in Principe"
     SV: Salvador
     SY: Sirija
@@ -553,6 +619,10 @@ sl:
       - Oktober
       - November
       - December
+    order: 
+      - !ruby/symbol year
+      - !ruby/symbol month
+      - !ruby/symbol day
     yesterday: Včeraj
   datetime: 
     distance_in_words: 
@@ -567,29 +637,29 @@ sl:
         other: "približno %{count} let"
       almost_x_years: 
         one: "skoraj 1 leto"
-        other: "skoraj {{count}} let"
+        other: "skoraj %{count} let"
       half_a_minute: "pol minute"
       less_than_x_minutes: 
-        one: "manj kot minuto"
-        other: "manj kot {{count}} minut"
+        one: ravnokar
+        other: "manj kot %{count} minut"
       less_than_x_seconds: 
-        one: "manj kot 1 sekundo"
-        other: "manj kot %{count} sekund"
+        one: ravnokar
+        other: ravnokar
       over_x_years: 
         one: "preko 1 leta"
-        other: "preko {{count}} let"
+        other: "preko %{count} let"
       x_days: 
         one: "1 dan"
         other: "%{count} dni"
       x_minutes: 
         one: "1 minuta"
-        other: "{{count}} minut"
+        other: "%{count} minut"
       x_months: 
         one: "1 mesec"
         other: "%{count} mesecev"
       x_seconds: 
-        one: "1 sekunda"
-        other: "%{count} sekund"
+        one: ravnokar
+        other: ravnokar
     prompts: 
       day: Dan
       hour: Ura
@@ -597,40 +667,65 @@ sl:
       month: MEssec
       second: "Sekunda "
       year: Leto
-    time_ago: "%{time_ago_in_words} pred"
+    time_ago: "%{time_ago_in_words} nazaj"
   deleted: 
     conversation: "Odstrani pogovor <b>%{name}</b>"
+    left_project: "Ni te več v tem projektu"
     page: "Odstrani stran <b>%{name}</b>"
+    person: "%{name} ne sodeluje več pri tem projektu"
     task: "Odstranjeno je opravilo <b>%{name}</b>"
     task_list: "Odstranjen je seznam opravil <b>%{name}</b> "
     upload: "Odstranjena je datoeka <b>%{name}</b> "
   dividers: 
+    actions: 
+      delete_confirm: "Ali si prepričan/a, da želiš odstraniti ta ločilnik?"
     edit: 
       submit: Posodobi
     new: 
       submit: Dodaj
   emailer: 
     common: 
+      answer_above_this_line: "SVOJE SPOROČILO PIŠI NAD TO VRSTICO"
       do_not_answer: "NE odgovarjaj na ta email!"
     confirm: 
+      follow_the_link: "Da končaš <b>registracijo</b> za Teambox, moraš klikniti na naslednjo povezavo:"
       hey: "Živjo, %{user_name}!"
       log_in: "Prijavi se v Teambox!"
+      plaintext_link: "Če ne deluje, kopiraj in prilepi to povezavo v naslovno vrstico brskalnika:"
+      subject: "Začni uporabljati Teambox"
+    forgot_password: 
+      subject: "Obnovitev gesla za Teambox"
     invitation: 
-      subject: "%{user}} je delil [%{project}] s teboj"
+      accept_the_invitation: "Sprejmi povabilo in začni sodelovati"
+      collaborate_with: "%{name} vas vabi da začnete sodelovati preko Teambox-a:"
+      current_users: "Uporabniki v tem projektu:"
+      plan_share_and_collaborate: "Planiraj, deli in sledi kaj je bilo narejeno. Preprosto kot to mora biti."
+      subject: "%{user} te je povabil v projekt [%{project}]"
+      teambox_is_a_pm_platform: "Teambox je spletna aplikacija za realno vodenje projektov"
+      you_have_been_invited_to: "Povabljen/a  si bil/a v projekt <b>%{project}</b>"
     notify: 
+      are_watching: "so prijavljeni na obveščanje o spremembah in bodo prejemali obvestila."
       assigned_to: "Dodeljeno <b>%{user}</b>"
       comment: "Komentarji na strani projekta:"
       comments: "%{number} komentarjev"
       conversation: "Pogovori:"
       due_on: "Rok %{date}"
       my_tasks: "Več opravil določenih v  %{project}"
+      notification_settings: "Lahko si spremeniš <a href='%{url}'>nastavitve obveščanja</a>."
+      project: "Teambox Projekt:"
       recent_conversations: "Nedavni pogovori v projektu %{project}"
       status: "Posodobitev: %{status}"
-      stop_watching: "<a href='%{stop_watching_url}'>Nehaj spremljati</a>ta pogovor."
+      stop_watching: "<a href='%{stop_watching_url}'>Nehaj spremljati</a> ta pogovor."
       task: "Opravilo:"
+      task_commands: "Napiši #resolve, #reject ali #hold na začetku odgovora, da spremeniš status opravila. Napiši #%{username} da opravilo dodeliš @%{username}, itd."
       task_list: "Seznam opravil:"
+      view_online: "Ta pogovor <a href='%{link}'>si lahko ogledaš na spletu</a> kjer lahko tudi komentiraš in pripneš datoteke."
     reset_password: 
+      follow_the_link: "Da <b>nastaviš novo geslo</b> za Teambox, se moraš prijaviti preko sledeče povezave:"
       hey: "Živjo, %{user_name}!"
+      log_in: "Prijavi se v Teambox"
+      subject: "Geslo je bilo uspešno ponastavljeno"
+      successfully_reset: "Vaše geslo je bilo uspešno ponastavljeno."
     upload: 
       file: Datoteka
       uploaded_by: "naložil "
@@ -658,6 +753,7 @@ sl:
       submit_project: Dodaj
       title: Skupine
       whats_this: "Kaj je to?"
+      your_group: "Tvoja skupina"
     logo_fields: 
       current: "Trenutni Logotip"
       delete: Odstrani
@@ -671,7 +767,7 @@ sl:
     search: 
       invite: Povabi
       invite_people: "Povabi osebe v skupino"
-      username_or_email: "Uporabniško ime ali email"
+      username_or_email: "Uporabniško ime ali Email"
     show: 
       add_project: "Dodaj projekt"
       edit: Uredi
@@ -681,7 +777,12 @@ sl:
     comments: Vnosi
     entry_hours: ur
     entry_total: Skupaj
+    filter_assigned: 
+      anybody: Kdorkoli
+      my_tasks: "Moja Opravila"
     filter_by: Filtriraj
+    filter_project: 
+      all: "Vsi Projekti"
     filters: 
       assigned_to: Osebe
       projects: Projekti
@@ -694,26 +795,56 @@ sl:
     week_num: "Teden %{num}"
     week_total: Skupaj
   invitations: 
+    errors: 
+      invalid: "Napačno povabilo"
     fields: 
       user_or_email: "Vnesi sodelavčev email ali uporabniško ime:"
+    group_invitation: 
+      invited_email: "%{inviter} je povabil <b>%{email}</b> da se pridruži skupini."
+      invited_user: "%{inviter} je povabil <b>%{invitee}</b> da se pridruži skupini."
+    index_user: 
+      no_invitations: "Brez čakajočih povabil."
+      title: "Čakajoča povabila"
     invitation: 
-      time_ago: "(%{time_ago_in_words} pred)"
+      discard: "Odstrani povabilo"
+      invited_email: "%{inviter} je povabil <b>%{email}</b> da se pridruži temu projektu."
+      invited_user: "%{inviter} je povabil <b>%{invitee}</b> da se pridruži temu projektu."
+      pending: "Email je bil poslan temu uporabniku, vendar še ni potrdil sodelovanja."
+      resend: "Ponovno pošlji povabilo"
+      time_ago: "(%{time_ago_in_words} nazaj)"
+    invite_format: 
+      enter_this: 
+        title: "Vpiši to"
+      to_invite: 
+        title: Povabi
+    pending: 
+      invited_to_join: "%{by} te je povabil a se pridružiš projektu %{project}."
+      to_access_or: "za dostop do projekta ali"
     recent: 
       invite: "Povabi %{username}"
     resend: 
+      resent: "Povabilo je bilo ponovno posalno na %{recipient}"
       return: Nazaj
     search: 
+      help: Pomoč
       invite: Povabi
       invite_from_project: "Povabi iz Projekta"
       invite_people: "Povabi osebe v skupino"
       role: "Izberi vlogo"
       submit: Pošlji
       username_or_email: "Vnesi sodelavčev email ali uporabniško ime"
-  locales: 
-    sl: Slovenščina
+    sent: 
+      email_sent: "Povabilo je bilo poslano"
+  latest_announcement: "Obišči <a href='http://blog.teambox.com'>naš blog</a> za zadnje novice o Teambox-u."
+  not_found: 
+    conversation: "Pogovora %{id} ne najdem v tem projektu."
+    group: "Skupina %{id} ne obstaja,a"
+    user: "Uporabnik ne obstaja."
   notes: 
+    actions: 
+      delete_confirm: "Ali si prepričan/a, da želiš odstraniti ta zaznamek?"
     edit: 
-      submit: Posodobizaznamek
+      submit: Posodobi
     fields: 
       body: Vsebina
       text_styling: "Oblikovanje Besedila"
@@ -725,12 +856,16 @@ sl:
       format: 
         delimiter: ","
         format: "%u%n"
+        precision: 2
         separator: "."
         unit: $
     format: 
       delimiter: ","
+      precision: 3
       separator: "."
     human: 
+      format: 
+        precision: 1
       storage_units: 
         format: "%n %u"
         units: 
@@ -741,8 +876,20 @@ sl:
           kb: KB
           mb: MB
           tb: TB
+  oauth: 
+    account_linked: "Tvoj račun je bil povezan."
+    already_linked_to_your_account: "Ta spletna stran je že povezana v tvoj račun, zato se lahko že prijaviš z njo."
+    app_unlinked: "Spletna stran je odvezana"
+    auth_status: "OAuth Prijava"
+    auth_status_link: "Poveži s svojim računom"
+    auth_status_linked: "Povezano z speltno stranjo"
+    link_account: "Poveži račun"
+    logged_in: "Uspešno prijavljen/a"
+    not_linked: "Ta spletna stran ni povezana z tvojim Teambox računom."
+    this_account_will_be_linked_to: "Ta račun bo povezan z %{provider}"
+    unlink_account: "Odveži račun"
   page_title: 
-    archived_task_lists: "Arhivirana opravila"
+    archived_task_lists: "Arhivirana Opravila"
     create_uploads: "Nalaganje datoteke"
     create_users: Registracija
     edit_projects: "Uredi projekt"
@@ -750,7 +897,7 @@ sl:
     index_conversations: "Vsi pogovori"
     index_pages: "Vse strani"
     index_people: Osebe
-    index_projects: "Vsi projekti"
+    index_projects: "Vsi Projekti"
     index_task_lists: "Vse seznami nalog"
     index_uploads: "Vse datoteke"
     new_conversations: "Nov pogovor"
@@ -758,6 +905,7 @@ sl:
     new_pages: "Nova Stran"
     new_projects: "Nov Projekt"
     new_users: Registracija
+    results_search: Iskanje
     show_projects: Pregled
     welcome_users: Pozdravljen/a!
   pages: 
@@ -769,11 +917,14 @@ sl:
     column: 
       all_pages: "Vse strani"
       new_page: "Nova Stran"
+      reorder: "Spremeni zaporedje"
+      reorder_done: Zaključi
     edit: 
       submit: Posodobi
       title: "Uredi stran"
     fields: 
       description: Opis
+      description_description: "Kratek opis. Brez oblikovanja"
       name: Ime
       name_description: "Izberi kratek in jasen naslov"
     index: 
@@ -782,31 +933,44 @@ sl:
         description: "Strani v projektu %{name}"
         title: "Strani %{name}"
     new: 
-      submit: Ustvari
+      submit: "Ustvari stran"
       title: "Nova Stran"
     primer: 
       create_first: "Ustvari prvo stran v tem projektu!"
+      define1: "Tukaj lahko <b>deliš uporabne informacije</b> z sodelavci: Plan, strategijo, znimive povezave, navodila, predloge..."
       empty: "Ta projekt je še brez strani."
     slots: 
       insert_here: "Vnesi tukaj"
   people: 
     column: 
+      confirm_delete: "Ali si prepričan/a, da želiš zapustiti ta projekt?"
+      contact_admins: "V tem projektu lahko povabijo nove uporabnike samo %{admins}."
+      inviting: "Povabi nove sodelavce"
+      leave_project: "Zapusti ta projekt"
+      leaving: "Zapušča projekt"
+      no_contacts: "Na volje ni nobeden sodelavec"
+      only_admins_can_invite: "Samo administratorji lahko povabijo ljudi v ta projekt."
       select_project: "Izberi projekt"
     edit: 
       submit: "Posodobi uporabnika"
     errors: 
       user_or_email: "Ne najdem uporabnika. Vnesi sodelavčev email ali uporabniško ime:."
     fields: 
+      admin: "Administrator. Lahko povabi ljudi v projekt in briše komentarje"
+      commenter: "Komentator. Lahko komentira, ne more pa dodajati novih elementov"
       observer: "Opazovalec. Projekt lahko samo pregleduje."
+      participant: "Sodelujoči. Lahko počne vse razen, povabi nove sodleavce k projektu."
       role: Zadolžitev
     header: 
       admin: Administrator
       commenter: Komentiral
+      confirm_delete: "Ali si prepričan/a, da želiš odstraniti to osebo s projekta?"
       leave_project: "Zapusti projekt"
       observer: Opazovalec
       owner: "Lastnik projekta"
       participant: Sodelavec
       remove: Odstrani
+      transfer: "Prenesi lastništvo"
     link: 
       edit: Uredi
   projects: 
@@ -820,9 +984,13 @@ sl:
     fields: 
       archived: "Arhiviraj projekt"
       archiving: "Arhiviraj projekt"
+      forever: "Zbriši ta projekt za vedno"
+      name: "Ime projekta <em>Kratko in jasno, primer: Apple Prodaja.</em>"
       new: 
         time_tracking_docs: "Izvedi več"
       owner: Lastnik
+      permalink: "Povezava<em>Kratka povezava za do projekta</em>"
+      public_project: "Javni projekt. <em>Vsi obiskovalci bodo lahko pregledovali in se pridružili projektu.  <a href='/public'>Poglej javni seznam projektov</a>.</em>"
       tracks_time: "Omogoči sledenje času. <em>To bo omogočilo, da uporabniki vnesejo čas ki so ga porabili za opravilo.</em>"
     index: 
       new_project: "Nov Projekt"
@@ -830,8 +998,14 @@ sl:
       rss: 
         description: "Pregled vseh projektov"
         title: "Pregled projektov"
+      subscribe: "Naroči se na novice"
     new: 
+      create_an_example_project: "Prvič uporabljaš Teambox? <a href='%{link}'>Ustvari primer projekta</a> in začni pridobivati veščine."
+      created: "Projekt je bil ustvarjen!"
+      invite_by_email: "Vnesi naslove elektronske pošte novih sodelavcev"
+      invite_people: "Povabi nove sodelavce v projekt"
       new_project: "Nov Projekt"
+      submit: "Začni nov projekt"
       title: "Ustvari projekt"
     new_primer: 
       feature1: "Objavi posodobitev statusa"
@@ -840,30 +1014,66 @@ sl:
       feature4: "Dodeli ali preglej opravila"
       feature5: "Komentiraj opravila"
       feature7: "Dodaj, uredi in poglej strani."
+      upgrade: "Nadgradi svoj račun sedaj!"
+    people_list: 
+      invite_people: "Povabi sodelavce..."
+      pending_invitations: 
+        one: "Eno povabilo na čakanju"
+        other: "%{count} povabil na čakanju"
+      people_in_project: "Sodelavci v tem projektu"
     primer: 
       create_first: "Ustvari svoj prvi projekt"
+      item1: "<b>Ustvari projekt</b>, ga poimenuj in<b>povabi sodelavce</b>."
+    recent_conversations: 
+      first: "+ Ustvari prvi pogovor"
+      new: "+ Nov pogovor"
+      title: "Zadnji pogovori"
+      view_all: "Poglej vse pogovore"
     show: 
       new_task_list_link: "Nov Seznam Opravil"
+      rss: 
+        description: "Zadnji dogodki v projektu %{name}"
+      subscribe: "Naroči se na novice"
       text_styling: "Oblikovanje Besedila"
-      tip: "Z uporabo @uporabnik, bo prejel sporočilo, v katerm si ga omenil."
+      tip: "Z uporabo @uporabnik, bo prejel sporočilo, v katerim si ga omenil."
       update_your_status: "Posodobi svoj status"
   reset_passwords: 
+    create: 
+      password_not_updated: "Novo geslo ni veljavno. Poizkusi ponovno!"
+      password_updated: "Geslo je bilo uspešno posodobljeno."
     new: 
       back: "Nazaj na prijavni zaslon"
-      submit: "Pošlji mi povezavo za poanstavitev mojega gesla"
+      email: "S katerim elektronskim naslovom si se registriral/a?"
+      submit: "Pošlji mi povezavo za ponastavitev mojega gesla"
       title: "Si pozabil/a geslo?"
+    reset: 
+      submit: "Ponastavi moje geslo"
+      title: "Sedaj lahko ponastaviš geslo"
     sent: 
+      change_password_now: "Sedaj si prijavljen. <b>Spremeni svoje geslo sedaj</b> da ga ponovno ne pozabiš!"
+      follow_the_link: "Sledi povezavi v tem sporočilu da se prijaviš v  Teambox. Če sporočila ne najdeš je mogoče zašel med nezaželeno pošto."
+      login_link_sent: "Pravkar smo ti poslali elektronsko pošto na  %{email} tako da boš lahko spremenil geslo."
+      not_found: "Elektronski naslov <b>%{email}</b> ne pripada nobenemu registriranemu uporabniku. Mogoče si ga narobe napisal/a?"
       title: "Ponastavi Geslo"
+  search: 
+    index: 
+      search_again: "Ponovno išči"
+      title: "Iščem v vseh projektih"
+      title_in_project: "Iskanje v projektu: %{project}"
+    placeholder: "Išči v vseh projektih"
+    placeholder_in_project: "Išči v projektu"
+    submit: Išči
   sessions: 
     fields: 
       forgot: "Si pozabil/a geslo?"
       password: Geslo
       signup: "Registriraj se za račun"
-      username_or_email: "Uporabniško ime ali email"
+      username_or_email: "Uporabniško ime ali Email"
     new: 
-      login_failed: "Ne morem te rijaviti kot %{login}"
+      login_failed: "Ne morem te prijaviti kot %{login}"
       submit: Prijava
       title: Prijava
+      video: "Zakaj se uporablja Teambox?"
   shared: 
     archived_projects: 
       archived_projects: "Arhivirani Projekti"
@@ -871,6 +1081,8 @@ sl:
       help: Pomoč
       mobile: "Mobilni dostop"
       support: "Zahvale in Napake"
+    gantt_banner_primer: 
+      title: "Trenutno ni nobenega seznama opravil, ki bi ga lahko prikazal v tem pogledu."
     global_navigation: 
       home: Domov
       login: Prijava
@@ -878,18 +1090,21 @@ sl:
       project_invitations: "Povabila (%{count})"
       settings: Nastavitve
     instructions: 
+      send_email: "Objavi nov komentar z emaila..."
+      send_email_conversations: "Objavi nov pogovor s pomočjo pošte..."
       subscribe_to_calendars: "Naročilo na koledarje ... "
       subscribe_to_feeds: "Naročilo na posodobitve"
     navigation: 
       all_projects: "Vsi Projekti"
       new_project: +
-      welcome: Dobrodešel/a
+      welcome: Pozdravljen/a
     project_navigation: 
       all_conversations: "Vsi pogovori"
       all_pages: "Vse strani"
-      all_task_lists: "Vse naloge"
+      all_task_lists: "Vsa Opravila"
       conversations: Pogovori
       files: Priponke
+      gantt: "Koledar in Gantogram"
       groups: "Skupine Projekta"
       invitations: Povabila
       login: Prijava
@@ -917,13 +1132,23 @@ sl:
       tour: Vodič
       users: "Naši Uporabniki"
     task_navigation: 
-      all_tasks: "Vse naloge"
+      all_tasks: "Vsa Opravila"
       everybodys_tasks: "Opravila vseh uporabnikov"
+      hide_archived_tasks: "Skrij arhivirana Opravila"
       my_assigned_tasks: "samo opravila dodeljena meni"
+      my_tasks: 
+        one: "Moje 1. Opravilo"
+        other: "Moja %{count} Opravila"
+      unarchived_tasks: "Nearhivirana Opravila"
+    upcoming_events_primer: 
+      title: "Za prikaz ne obstaja nobeno opravilo"
     upgrade_browser: 
       chrome: "Chrome,"
       firefox: Firefox
+      ie: "Posodobi Internet Explorer"
+      or_install: "ali namesti"
       safari: Safari
+      upgrade: "Uporabljaš zastarelo verzijo Internet Explorer-ja. Teambox mogoče ne bo delovala pravilno, zato predlagamo da ga posodobiš."
     user_navigation: 
       account_settings: "Nastavitve Računa"
       delete_account: "Odstrani račun..."
@@ -933,28 +1158,40 @@ sl:
       profile_picture: "Slika Profila"
     watchers: 
       nobody_watching: "Nobeden ne spremlja tega"
-      people_watching: "Osebeki spremljajo: "
+      people_watching: "Osebe ki spremljajo: "
+      started_watching: "Na posodobitve boste obveščeni po elektronski pošti."
       stopped_watching: "Ne boste več prejemali obvestil za ta predmet."
-      unwatch: "Nehaj spremljati"
-      watch: "Začni spremljati"
+      unwatch: "Nehaj Spremljati "
+      watch: "Začni PSremljati"
   support: 
     array: 
       last_word_connector: ", in"
-      two_words_connector: in
+      two_words_connector: " in "
       words_connector: ","
     select: 
       prompt: "Prosim izberi"
   task_lists: 
     actions: 
-      rename: "preimenuj seznam opravil"
+      archive: "arhiviraj ta seznam opravil"
+      confirm_resolve_and_archive: "Ali si prepričan/a, da želiš končati vsa opravila in arhivirati ta seznam opravil?"
+      rename: "Preimenuj seznam opravil"
+      resolve_and_archive: "Zaključi vsa opravila in arhiviraj"
       set_dates: "Nastavi začetni in končni datum"
+      show_archived: 
+        one: "Show 1 archived task"
+        other: "Show %{count} archived tasks"
     archive_box: 
       unarchive_list: "Opravilo je arhivirano."
     archived: 
+      description: "Trenutno si ogleduje arhivirana opravila. Ta opravila so bila zaključena."
       title: "Vsa arhivirana opravila"
     column: 
+      gantt_view: "Koledar in Gantogram projekta"
       new_task_list: "Nov seznam opravil"
       other_views: "Ostali pogledi"
+      subscribe: "Prijavi se na seznam opravil"
+    destroy_message: 
+      deleted: "Seznam Opravil<b>%{name}</b> je bil uspešno izbrisan!"
     edit: 
       submit: "Posodobi seznam opravil"
     errors: 
@@ -962,12 +1199,15 @@ sl:
         cant_be_blank: "Ime ne sme biti prazno"
         too_long: "Ime mora biti krajše od 255 znakov"
     fields: 
-      finish_on: "Končano do... <i>opcijsko</i>"
+      finish_on: "Konča se... <i>opcijsko</i>"
+      name: "Izberi ime za ta Seznam Opravil <i>recimo Pripravi Prototip</i>"
+      optional: "Če navedeš začetni in končni datum se bo ta seznam opravil prikazal v gantogramu"
       start_on: "Začne se... <i>opcijsko</i>"
+      task_list: "Seznam opravil definira večji skupek opravil. Vsako opravilo pa lahko določite sodelavcu."
       title: "Nov seznam opravil"
     filter: 
-      anybody: Kdorkoli
-      anytime: Kdorkoli
+      anybody: Komurkoli
+      anytime: Kadarkoli
       assigned_to: "Prikaži opravila dodeljena"
       due_date: "Prikaži opravila z rokom končanja ..."
       late_tasks: "Zapoznela opravila"
@@ -976,12 +1216,19 @@ sl:
       today: Danes
       tomorrow: Jutri
       unassigned: Nedodeljeno
+    gantt_view: 
+      back_to_normal_view: "Nazaj v navaden pogled"
+      view_for_all_projects: "poglej Kolendar in Gantogram za vse projekte"
     index: 
       add_link: "Nov seznam opravil"
       empty: "Brez opravil v tej kategoriji!"
       ends_on: "Rok %{date}"
+      gantt_view: "Koledar in Gantogram tega projekta"
       no_dates_assigned: "Brez datuma"
       other_views: "Ostali pogledi"
+      rss: 
+        description: "Seznam sprememb opravil za projekt %{name}"
+        title: "%{name} posodobitve opravil"
       starts_on: "Začne se %{date}"
       tasks_for_all_projects: "Opravila v vseh projektih"
       tasks_for_project: "Seznam opravil za ta projekt"
@@ -1002,6 +1249,7 @@ sl:
     primer: 
       create_first: "Ustvari prvi seznam opravil v tem projektu!"
       empty: "Ta projekt je še brez seznama opravil."
+      footer2: "Čas je da pozabiš na Excel in komplikacirane gantograme!"
       item3: "<b>Sledi</b>. Prejmi obvestila, za dodeljena opravila"
     show: 
       title: "Seznam Opravil: %{name}"
@@ -1034,27 +1282,31 @@ sl:
       due_on: "Mora biti končano pred... <i>opcijsko</i>"
       name: "Vnesi naslov opravila <i>recimo Naloži Logotip Projekta</i>"
       optional: "Spodaj lahko podaš natančen opis za to opravilo"
+      task: "Vnesi smiselno opravilo. Bolj je specifično, bolje je."
       title: "Novo opravilo"
     link: 
       edit: Uredi
       hide_archived_tasks: 
-        one: "Skrij arhivirano opravilo"
+        one: "Skrij1 arhivirano opravilo"
         other: "Skrij %{count} arhivirana opravila"
-      new: "Dodaj opravilo"
+      new: "+Dodaj opravilo"
     my_tasks: 
       my_tasks: "Moja oipravila za vse projekte"
     new: 
       submit: "Dodaj opravilo"
       title: "Novo opravilo"
     overdue: "%{days} dni čez rok"
+    overview_box: 
+      status: Status
+      title: Opravilo
     show: 
       title: "Opravilo: %{name}"
     status: 
-      hold: zadržano
+      hold: zadrži
       new: novo
       open: dodeljeno
       rejected: zavrnjeno
-      resolved: odpravljeno
+      resolved: zaključeno
     unarchive_box: 
       reopen: "Ponovno odpri to opravilo"
       task_is_closed: "To opravilo je končano in arhivirano"
@@ -1069,7 +1321,7 @@ sl:
   uploads: 
     comment_upload_link: Priponka
     form: 
-      description: Naslov<i>(opcijsko)</i>
+      description: "Naslov <i>(opcijsko)</i>"
       select_file: "Izberi datoteko"
       upload: "Naloži datoteko"
     index: 
@@ -1080,6 +1332,7 @@ sl:
     primer: 
       create_first: "Naloži prvo datoteko v ta projekt!"
       empty: "Ta projekt je še brez priponk."
+    tooltip: "Naloži datoteko"
     upload: 
       download: Prenesi
       on_: na
@@ -1087,14 +1340,24 @@ sl:
       uploaded_by: "Naložil "
   users: 
     activation: 
+      activated: "Tvoj račun je bil aktiviran! Dobrodošel/šla v Teambox-u :)"
+      already_done: "Svoj poštni naslov si že potrdil/a! Sedaj že lahko uporabljaš Teambox!"
       invalid_user: "Napačen uporabnik"
+      resent: "Ponovno smo poslali sporočilo za aktivacijo. Še enkrat poglej svojo pošto!"
     calendars: 
+      clients: 
+        title: "Natančna navodila"
+      how_to: 
+        title: "Kako sinhronizirati koledarje"
       subscribe_to_all: "Vsi Projekti"
       subscribe_to_project: "Projekt %{project}:"
       title: "Sinhroniziraj koledarje"
       your_calendars: "Tvoji koledarji"
+    create: 
+      thanks: "Hvala da si se registriral/a!"
     daily_task_reminder_email: 
       daily_task_reminder: "Dnevi opomnik opravil"
+      daily_task_reminder_from_teambox: "To je tvoj dnevi seznam opravil s Teambox-a"
       late_tasks: "Zapoznela opravila"
       settings_page: "stran nastavitev"
       tasks_for_next_two_weeks: "Opravila v naslednjih sveh tednih"
@@ -1111,20 +1374,28 @@ sl:
       title_profile: "Nastavitve Profila"
       title_settings: "Nastavitve tvojega profila"
     feeds: 
+      more_tips: 
+        title: "Več idej"
       subscribe_to_all: "Aktivnost za Vse Projekte"
       subscribe_to_project: "Aktivnosti za %{project}"
+      title: "Sinhroniziraj svoje dogodke"
+      your_feeds: "Tvoje novice"
     form: 
       account_deletion: 
         delete_my_account: "Odstrani moj račun zdaj"
       avatar: 
         destroy: "Odstrani avatar"
         field: "Nov avatar"
+        gravatar_in_use: "Ker nimamo tvoje slike, uporabljamo %{gravatar}:"
+        upload_here_or_at_gravatar: "Lahko naložiš svoj avatar ali pa uporabiš enega s pomočjo %{gravatar}."
+        we_have_this_avatar: "To je avatar, ki ga trenutno uporabljaš:"
       biography: "Kratek opis"
       change_password: "Spremeni geslo"
       confirm_password: "Potrdi geslo"
       email: Email
       first_day_of_week: "Teden se začne z "
       first_name: Ime
+      invalid_login: "uporabi samo črke, števila in _"
       language: Jezik
       last_name: Priimek
       login: "Uporabniško ime"
@@ -1140,26 +1411,43 @@ sl:
       sunday: Nedeljo
       time_zone: "Časovni pas"
       tooltips: 
+        email: "Vnesi resničen email, tako da te sodelavci lahko kontaktirajo."
         first_name: "Do 20 znakov."
         last_name: "Do 20 znakov."
+        password: "Kombiniranje črk, števil, velikih in malih črk je dobra ideja."
+      wants_task_reminder: "Pošlji mi dnevni opomnik mojih opravil"
     new: 
       submit: "Ustvari račun"
-      title: "Ustvari račun"
+      title: "Ustvari nov račun"
     show: 
       profile: Profil
       projects: Projekti
       recent_activity_for: "Zadnje aktivnosti za uporabnika %{user_name}"
+    text_styles: 
+      enter_this: 
+        title: "Vpiši to"
+      to_see_this: 
+        title: "Da dobiš to"
     unconfirmed_email: 
       problems_title: Problemi?
+      spam: "Preveri da poštno sporočilo ni zašlo med SPAM ali nezaželeno pošto."
       title: "Potrdi svoj email"
+    update: 
+      updated: "Uporabniški račun posodobljen!"
     user: 
       formatted_address: "%{street}, %{city} (%{country})"
       remove_from_project: "Odstrani s projekta"
     welcome: 
+      get_started: "Začni uporabljati Teambox!"
+      intro1: "Si naš najnovejši član/članica! Kmalu boš opazil/a da je Teambo-k odlično orodje za sodelovanje in vodenje projektov."
+      intro2: "Kaj sedaj? Ustvari svoj prvi projekt in začni  <b>sodelovati</b>:"
       projects: 
+        create_your_first_project: "Dogodek, oblikovanje, izdelek... Klikni in <a href='%{link}'>ustvari svoj prvi projekt</a> sedaj!"
         title: Projekti
       spread: 
         facebook: Facebook
+        in_your_site: "na tvoji spletni strani!"
+        title: "Nas imaš tudi ti rad?"
         twitter: "Twitter,"
       stop_welcome: "Nahaj kazati to sporočilo"
   weakling: 
